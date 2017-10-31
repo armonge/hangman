@@ -10,7 +10,7 @@ export class KeyboardComponent implements OnInit {
   @Output() characterSelected: EventEmitter<string> = new EventEmitter();
 
 
-  private letterRows: [[string]];
+  public letterRows: [[string]];
   constructor() { }
 
   clicked(letter: string): void {

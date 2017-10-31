@@ -10,7 +10,7 @@ import { Phrase } from '../phrase';
   styleUrls: ['./hangman.component.css']
 })
 export class HangmanComponent implements OnInit {
-  private phrase: Phrase;
+  public phrase: Phrase;
   constructor(private hangmanService: HangmanService) { }
 
   onCharacterSelected(letter) {

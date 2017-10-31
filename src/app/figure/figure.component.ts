@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./figure.component.css']
 })
 export class FigureComponent implements OnInit {
-  @Input() private errorCount: number;
+  @Input() errorCount: number;
 
   constructor() { }
 
