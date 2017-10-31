@@ -1,0 +1,10 @@
+.letter {
+  display: inline-block;
+  margin: 0 15px;
+  font-size: 3em;
+  height: 1.5em;
+  width: 1em;
+  font-family: monospace;
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}

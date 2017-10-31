@@ -1,0 +1,4 @@
+<div *ngFor="let letter of phrase" class="letter">
+  <span *ngIf="letter.revealed"> {{ letter.letter }} </span>
+  <span *ngIf="!letter.revealed"> </span>
+</div>
