@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-keyboard',
@@ -7,8 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class KeyboardComponent implements OnInit {
+  @Output() characterSelected: EventEmitter<string> = new EventEmitter();
+
+
   private letterRows: [[string]];
   constructor() { }
+
+  clicked(letter: string): void {
+    this.characterSelected.emit(letter);
+  }
 
   ngOnInit() {
     this.letterRows =  [

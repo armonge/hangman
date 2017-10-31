@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Letter } from './../letter';
+import { Phrase } from '../phrase';
 
 @Component({
   selector: 'app-dashes',
@@ -9,5 +9,5 @@ import { Letter } from './../letter';
 })
 
 export class DashesComponent {
-  @Input() phrase: Letter[];
+  @Input() phrase: Phrase;
 }

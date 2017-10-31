@@ -1,9 +1,30 @@
-<div class="row">
+<div class="row" *ngIf="!phrase.won && !phrase.lost">
   <div class="col-7">
-    <app-dashes [phrase]='phrase' ></app-dashes>
-    <app-keyboard></app-keyboard>
+    <app-dashes [phrase]='phrase' *ngIf='phrase'></app-dashes>
+    <app-keyboard (characterSelected)="onCharacterSelected($event)"></app-keyboard>
   </div>
   <div class="col-5">
-    <app-figure [errorCount]="errorCount"></app-figure>
+    <app-figure [errorCount]='phrase.errorCount' *ngIf='phrase'></app-figure>
+  </div>
+</div>
+
+
+<div class="row" *ngIf="phrase.won">
+  <div class="jumbotron">
+    <h1 class="display">You Won!</h1>
+    <p class="lead">You did some great work on the game and i'm happey to pronounce you the winner, it's been an honor, see ya next time.</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" routerLink='/highscore' role="button">Check Highscores</a>
+    </p>
+  </div>
+</div>
+
+<div class="row" *ngIf="phrase.lost">
+  <div class="jumbotron">
+    <h1 class="display">You lost!</h1>
+    <p class="lead">Well, this is not fun. You did your best and you still couldn't, maybe next time apply yourself</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" (click)='playAgain()' role="button">Play again</a>
+    </p>
   </div>
 </div>

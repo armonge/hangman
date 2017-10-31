@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { HangmanService } from './hangman.service';
 import { Letter } from '../letter';
+import { Phrase } from '../phrase';
 
 @Component({
   selector: 'app-hangman',
@@ -9,13 +10,21 @@ import { Letter } from '../letter';
   styleUrls: ['./hangman.component.css']
 })
 export class HangmanComponent implements OnInit {
-  private phrase: Letter[];
-  private errorCount: number;
+  private phrase: Phrase;
   constructor(private hangmanService: HangmanService) { }
 
-  ngOnInit(): void {
+  onCharacterSelected(letter) {
+    this.hangmanService.submitLetter(letter, this.phrase)
+      .then(phrase => this.phrase = phrase);
+  }
+
+  playAgain(): void {
     this.hangmanService.getPhrase()
       .then(phrase => this.phrase = phrase);
+  }
+
+  ngOnInit(): void {
+    this.playAgain();
   }
 
 }
