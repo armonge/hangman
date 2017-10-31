@@ -19,19 +19,16 @@ export class HangmanService {
     return this.http
     .get(this.phrasesUrl)
     .toPromise()
-    .then(response => new Phrase(response.text()))
+    .then(response => new Phrase(response.json().phrase))
     .catch(this.handleError);
   }
 
   submitLetter(letter: string, phrase: Phrase): Promise<Phrase> {
-    const letters = phrase.letters.filter(l => l.letter === letter);
-    if (letters.length === 0) {
-      phrase.errorCount += 1;
-    }
-
-    letters.map(l => l.revealed = true);
-
-    return Promise.resolve(phrase);
+    return this.http
+    .post(this.phrasesUrl, { phrase: phrase, letter: letter })
+    .toPromise()
+    .then(response => new Phrase(response.json().phrase))
+    .catch(this.handleError);
   }
 
   private handleError(error) {

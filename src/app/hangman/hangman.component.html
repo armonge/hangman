@@ -1,3 +1,6 @@
+won: {{ phrase.won }}
+<br>
+lost: {{ phrase.lost }}
 <div class="row" *ngIf="!phrase.won && !phrase.lost">
   <div class="col-7">
     <app-dashes [phrase]='phrase' *ngIf='phrase'></app-dashes>

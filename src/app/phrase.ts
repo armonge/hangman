@@ -15,9 +15,8 @@ export class Phrase {
       .every();
   }
 
-  constructor(letters: string) {
-    this.letters = letters.split('').map(l => new Letter(l));
-    this.errorCount = 0;
+  public constructor(init?: Partial<Phrase>) {
+    Object.assign(this, init);
   }
 }
 

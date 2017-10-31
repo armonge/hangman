@@ -13,8 +13,8 @@ import { HighScoreComponent } from './high-score/high-score.component';
 import { HangmanService } from './hangman/hangman.service';
 
 // Imports for loading & configuring the in-memory web api
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './in-memory-data.service';
+// import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+// import { InMemoryDataService }  from './in-memory-data.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import { InMemoryDataService }  from './in-memory-data.service';
     HighScoreComponent,
   ],
   imports: [
-    InMemoryWebApiModule.forRoot(InMemoryDataService),
+    // InMemoryWebApiModule.forRoot(InMemoryDataService),
     BrowserModule,
     NgbModule.forRoot(),
     HttpModule,
