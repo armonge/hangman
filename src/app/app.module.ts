@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { HttpModule } from '@angular/http';
+import {HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { KeyboardComponent } from './keyboard/keyboard.component';
@@ -29,7 +29,7 @@ import { HangmanService } from './hangman/hangman.service';
     // InMemoryWebApiModule.forRoot(InMemoryDataService),
     BrowserModule,
     NgbModule.forRoot(),
-    HttpModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {
         path: '',

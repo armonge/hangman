@@ -1,4 +1,6 @@
-<div *ngFor="let letter of phrase.letters" class="letter">
+<div *ngFor="let letter of phrase.letters"
+  class="letter" [attr.data-letter]="letter.letter"
+  [attr.data-revealed]="letter.revealed">
   <span *ngIf="letter.revealed"> {{ letter.letter }} </span>
   <span *ngIf="!letter.revealed"> </span>
 </div>

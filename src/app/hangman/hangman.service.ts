@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -11,7 +11,7 @@ export class HangmanService {
   private phrasesUrl = 'api/phrase';
   public errorCount: number;
 
-  constructor(private http: Http) {
+  constructor(private http: HttpClient) {
     this.errorCount = 0;
   }
 
@@ -19,7 +19,7 @@ export class HangmanService {
     return this.http
     .get(this.phrasesUrl)
     .toPromise()
-    .then(response => new Phrase(response.json().phrase))
+    .then(response => new Phrase(response['phrase']))
     .catch(this.handleError);
   }
 
@@ -27,7 +27,7 @@ export class HangmanService {
     return this.http
     .post(this.phrasesUrl, { phrase: phrase, letter: letter })
     .toPromise()
-    .then(response => new Phrase(response.json().phrase))
+    .then(response => new Phrase(response['phrase']))
     .catch(this.handleError);
   }
 
