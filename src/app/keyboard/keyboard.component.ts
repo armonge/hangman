@@ -9,7 +9,6 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 export class KeyboardComponent implements OnInit {
   @Output() characterSelected: EventEmitter<string> = new EventEmitter();
 
-
   public letterRows: [[string]];
   constructor() { }
 

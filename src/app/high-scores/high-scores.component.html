@@ -1,0 +1,17 @@
+<h1>High Scores</h1>
+<table class='table table-stripped'>
+  <thead class='thead-light'>
+    <tr>
+      <th>Rank</th>
+      <th>Score</th>
+      <th>Username</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let score of scores; let i = index">
+    <td>{{ i + 1 }}</td>
+    <td>{{ score.score }}</td>
+    <td>{{ score.username }}</td>
+  </tr>
+  </tbody>
+</table>

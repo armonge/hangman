@@ -7,25 +7,23 @@ import { Phrase } from '../phrase';
 
 
 @Injectable()
-export class HangmanService {
-  private phrasesUrl = 'api/phrase';
+export class ScoresService {
+  private scoresUrl = 'api/scores';
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) { }
 
-  getPhrase(): Promise<Phrase> {
+  submitScore(phrase: Phrase, username: string) {
     return this.http
-    .get(this.phrasesUrl)
+    .post(this.scoresUrl, { phrase: phrase.plain, score: phrase.score, username: username })
     .toPromise()
-    .then(response => new Phrase(response['phrase']))
+    .then(result => result['rank'])
     .catch(this.handleError);
   }
 
-  submitLetter(letter: string, phrase: Phrase): Promise<Phrase> {
+  getScores() {
     return this.http
-    .post(this.phrasesUrl, { phrase: phrase, letter: letter })
+    .get(this.scoresUrl)
     .toPromise()
-    .then(response => new Phrase(response['phrase']))
     .catch(this.handleError);
   }
 
@@ -33,6 +31,5 @@ export class HangmanService {
     console.error('An error ocurred', error);
     return Promise.reject(error.message);
   }
+
 }
-
-
