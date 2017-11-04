@@ -1,10 +1,10 @@
 <div class="row" >
-  <div class="col-7" *ngIf="!phrase.won && !phrase.lost">
+  <div class="col-7" *ngIf="phrase && !phrase.won && !phrase.lost">
     <app-dashes [phrase]='phrase' *ngIf='phrase'></app-dashes>
     <app-keyboard (characterSelected)="onCharacterSelected($event)"></app-keyboard>
   </div>
 
-  <div class="col-7" *ngIf="phrase.won">
+  <div class="col-7" *ngIf="phrase && phrase.won">
     <div class="jumbotron">
       <h1 class="display">You Won!</h1>
       <p class="lead">You did some great work on the game and i'm happey to pronounce you the winner. Your score is {{ phrase.score }}, it's been an honor, see ya next time.</p>
@@ -16,7 +16,7 @@
     </div>
   </div>
 
-  <div class="col-7" *ngIf="phrase.lost">
+  <div class="col-7" *ngIf="phrase && phrase.lost">
     <div class="jumbotron">
       <h1 class="display">You lost!</h1>
       <p class="lead">Well, this is not fun. You did your best and you still couldn't, maybe next time apply yourself</p>
