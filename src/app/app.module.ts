@@ -4,6 +4,8 @@ import { RouterModule } from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
+import { Angulartics2Module, Angulartics2GoogleAnalytics } from 'angulartics2';
+
 import { AppComponent } from './app.component';
 import { KeyboardComponent } from './keyboard/keyboard.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -49,7 +51,8 @@ import { ScoresService } from './high-scores/scores.service';
         path: 'highscore',
         component: HighScoresComponent
       }
-    ])
+    ]),
+    Angulartics2Module.forRoot([ Angulartics2GoogleAnalytics ]),
   ],
   providers: [ HangmanService, ScoresService ],
   bootstrap: [AppComponent]

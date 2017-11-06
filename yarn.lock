@@ -311,6 +311,10 @@ angular-in-memory-web-api@^0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/angular-in-memory-web-api/-/angular-in-memory-web-api-0.5.1.tgz#e2a2073fe11bc08bad712774275e2728263e5ceb"
 
+angulartics2@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/angulartics2/-/angulartics2-3.3.0.tgz#910a200346a4a3990b0a4f5032916cc483dff563"
+
 ansi-html@0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/ansi-html/-/ansi-html-0.0.7.tgz#813584021962a9e9e6fd039f940d12f56ca7859e"
